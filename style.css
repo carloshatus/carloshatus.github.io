@@ -212,8 +212,210 @@ section {
   color: var(--text-muted);
 }
 
+.projects {
+  background-color: rgba(9, 20, 26, 0.4);
+  position: relative;
+}
+
+.projects-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: -1.5rem auto 3.5rem;
+  color: var(--text-muted);
+  font-size: 1.15rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: 2.5rem;
+}
+
+.project-card {
+  background: rgba(45, 36, 64, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-dark-green));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(105, 191, 111, 0.35);
+  box-shadow: 0 15px 35px rgba(5, 14, 31, 0.8), 0 0 25px rgba(105, 191, 111, 0.08);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.project-icon-badge {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.project-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 50px;
+  background: rgba(105, 191, 111, 0.12);
+  color: var(--accent-green);
+  border: 1px solid rgba(105, 191, 111, 0.3);
+  letter-spacing: 0.03em;
+}
+
+.project-badge .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+  display: inline-block;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.project-card h3 {
+  font-size: 1.7rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.project-card .project-subtitle {
+  color: var(--accent-green);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 1.8rem;
+}
+
+.project-card p strong {
+  color: var(--text-main);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.project-tag {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  font-family: 'Fira Code', monospace;
+  transition: var(--transition);
+}
+
+.project-card:hover .project-tag {
+  border-color: rgba(105, 191, 111, 0.25);
+  background: rgba(105, 191, 111, 0.07);
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: var(--transition);
+}
+
+.project-btn-primary {
+  background: var(--accent-dark-green);
+  color: #fff;
+  border: 1px solid rgba(105, 191, 111, 0.4);
+  box-shadow: 0 4px 15px rgba(105, 191, 111, 0.2);
+}
+
+.project-btn-primary:hover {
+  background: var(--accent-green);
+  color: #050e1f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(105, 191, 111, 0.4);
+}
+
+.project-btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent-green);
+  border-color: var(--accent-green);
+  transform: translateY(-2px);
+}
+
 .contact {
   text-align: center;
+}
+
+.contact-intro {
+  max-width: 680px;
+  margin: -1.5rem auto 3rem;
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1.7;
 }
 
 .social-links {
@@ -256,12 +458,25 @@ footer {
 @media (max-width: 768px) {
   header {
     justify-content: center;
+    position: static;
+    padding: 1.5rem 0;
   }
   nav ul {
     padding-right: 0;
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav a {
+    font-size: 0.95rem;
   }
   .section-title {
     font-size: 2rem;
+  }
+  .project-actions {
+    flex-direction: column;
+  }
+  .project-btn {
+    width: 100%;
   }
 }

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.service-card, .about-text p, .section-title, .social-links a');
+    const animatedElements = document.querySelectorAll('.service-card, .project-card, .about-text p, .section-title, .projects-intro, .contact-intro, .social-links a');
     
     animatedElements.forEach(el => {
         el.style.opacity = 0;
